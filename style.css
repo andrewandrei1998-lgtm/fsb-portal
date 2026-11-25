@@ -1,0 +1,161 @@
+/* ============ ПЕРЕМЕННЫЕ ============ */
+:root {
+    --bg-main: #0a0e14;
+    --bg-card: #141a24;
+    --text-primary: #e0e6ed;
+    --text-secondary: #8b9bb4;
+    --accent: #3b82f6;
+    --border: #1f2937;
+    --radius: 12px;
+    --font: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* ============ СБРОС ============ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* ============ ШАПКА ============ */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--bg-main);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.main-nav a:hover {
+    color: var(--text-primary);
+}
+
+/* ============ ГЛАВНЫЙ ЭКРАН ============ */
+.hero {
+    text-align: center;
+    padding: 6rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-label {
+    color: var(--accent);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-sub {
+    color: var(--text-secondary);
+}
+
+/* ============ ПОДВАЛ ============ */
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* ============ АДАПТИВ (телефоны) ============ */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .main-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem 1rem;
+    }
+}
+/* ============ АККОРДЕОН ============ */
+.accordion {
+    margin-top: 2rem;
+}
+
+.accordion-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: var(--font);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header::after {
+    content: '+';
+    color: var(--accent);
+    font-size: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.accordion-item.open .accordion-header::after {
+    content: '−';
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 1.5rem;
+}
+
+.accordion-item.open .accordion-body {
+    max-height: 2000px;
+    padding: 0 1.5rem 1.5rem;
+}
